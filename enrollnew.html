@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="http://getbootstrap.com/docs-assets/ico/favicon.png">
+
+    <title>LearnOrg 3.0 beta</title>
+
+
+    <!--<link href="http://bootswatch.com/cosmo/bootstrap.min.css" rel="stylesheet">-->
+
+
+    <!--Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+
+    <!-- Custom styles for this template -->
+    <link href="css/sticky-footer-navbar.css" rel="stylesheet">
+
+    <link href="css/bootstrap-switch.css" rel="stylesheet">
+    <link href="css/enrollnew.css" rel="stylesheet">
+
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="js/bootstrap-switch.js"></script>
+
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+    <script>
+            $(function() {
+              // initialize all the inputs
+              $('input[type="checkbox"],[type="radio"]').not('#create-switch').bootstrapSwitch();
+              $('.switch-mini').bootstrapSwitch('setOnLabel', 'Enrolled');
+              $('.switch-mini').bootstrapSwitch('setOffLabel', 'Unrolled');
+              $('.switch-mini').bootstrapSwitch('toggleDisabled');
+              if($('.switch-mini').bootstrapSwitch('state')){
+                $('.switch-mini').bootstrapSwitch('toggleState');
+              }
+              if(!$('.switch-mini').bootstrapSwitch('state')){
+                    $('#change-color-switch1').bootstrapSwitch('toggleState');
+              }
+              $('.btn.btn-success.btn-xs').on('click', function () {
+                var $this = $(this);
+                $this.parent().prev().prev().find('.switch-mini').bootstrapSwitch('toggleState');
+                if ($this.text()=="Unroll") {
+                    $this.text('Enroll');
+                    $this.parent().prev().prev().prev().find('span').text("13/60");
+                } else {
+                    $this.text('Unroll');
+                    $this.parent().prev().prev().prev().find('span').text("14/60");
+                }
+              });
+          });
+    </script>
+
+
+<script>
+function clientSideInclude(id, url) {
+  var req = false;
+  // For Safari, Firefox, and other non-MS browsers
+  if (window.XMLHttpRequest) {
+    try {
+      req = new XMLHttpRequest();
+    } catch (e) {
+      req = false;
+    }
+  } else if (window.ActiveXObject) {
+    // For Internet Explorer on Windows
+    try {
+      req = new ActiveXObject("Msxml2.XMLHTTP");
+    } catch (e) {
+      try {
+        req = new ActiveXObject("Microsoft.XMLHTTP");
+      } catch (e) {
+        req = false;
+      }
+    }
+  }
+  var element = document.getElementById(id);
+  if (!element) {
+    alert("Bad id " + id + 
+     "passed to clientSideInclude." +
+     "You need a div or span element " +
+     "with this id in your page.");
+    return;
+  }
+  if (req) {
+    // Synchronous request, wait till we have it all
+    req.open('GET', url, false);
+    req.send(null);
+    element.innerHTML = req.responseText;
+  } else {
+    element.innerHTML =
+    "Sorry, your browser does not support " +
+    "XMLHTTPRequest objects. This page requires " +
+    "Internet Explorer 5 or better for Windows, " +
+    "or Firefox for any system, or Safari. Other " +
+    "compatible browsers may also exist.";
+  }
+}
+</script>
+
+</head>
+
+<body style="" onLoad="clientSideInclude('footer', 'footer.html');clientSideInclude('header', 'header.html');">
+<div id="header">
+      <!--#include virtual="/header.html" -->
+
+      
+
+    </div>
+<!-- Wrap all page content here -->
+<div id="wrap">
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand active" href="http://getbootstrap.com/examples/navbar-fixed-top/#">LearnOrg</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Courses<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Manage Enrollments</a></li>
+                                <li><a href="enrollments.html">View Courses</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="grades.html">Results</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">External Links<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="http://lms.uom.lk">Moodle</a></li>
+                                <li><a href="https://online.mrt.ac.lk">New Moodle</a></li>
+                                <li><a href="http://www.mrt.ac.lk/web/">UOM</a></li>
+                                <!--<li><a href="http://getbootstrap.com/examples/navbar-fixed-top/#">Something else here</a></li>-->
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Help <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="http://getbootstrap.com/examples/navbar-fixed-top/#">About</a></li>
+                                <li><a href="http://getbootstrap.com/examples/navbar-fixed-top/#">FAQ</a></li>
+                                <!--<li><a href="http://getbootstrap.com/examples/navbar-fixed-top/#">Something else here</a></li>-->
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><form class="navbar-form navbar-right" role="search">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Search">
+                            </div>
+                            <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+                        </form></li>
+                        <li><a href="#">Profile</a></li>
+                        <li><a href="#">Logout</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div><!--/.nav-collapse -->
+            </div>
+        </div>
+        <div class="container">
+            <h2>Currunt Semister Enrollments</h2>
+            <table>
+                <tr>
+            <div id="row1">
+            <td><span class="label label-warning">Com</span></td>
+            <td><input type="checkbox" checked class="switch-mini" id="change-color-switch1" data-on="success" data-off="danger"></td>
+            <td><span class="subject">CS4222-Software Process and Management</span></td>
+            <td><div id="toggle-state-switch-button1" class="btn btn-warning btn-xs" disabled="disabled"><i class="icon-white icon-ok"></i>Unroll</div></td>
+            </div>
+        </tr><tr>
+            <div id="row2">
+            <td><span class="label label-danger">60/60</span></td>
+            <td><input type="checkbox" checked class="switch-mini" id="change-color-switch2" data-on="success" data-off="danger"></td>
+            <td><span class="subject">CS4232-Formal Methods in Software Engineering</span></td>
+            <td><div id="toggle-state-switch-button2" class="btn btn-danger btn-xs" disabled="disabled"><i class="icon-white icon-ok"></i>Enroll</div></td>
+            </div>
+            </tr><tr>
+            <div id="row3">
+            <td><span class="label label-info">13/60</span></td>
+            <td><input type="checkbox" checked class="switch-mini" id="change-color-switch3" data-on="success" data-off="danger"></td>
+            <td><span class="subject">CS4252-Advanced Operating Systems</span></td>
+            <td><div id="toggle-state-switch-button3" class="btn btn-success btn-xs"><i class="icon-white icon-ok"></i>Enroll</div></td>
+            </div>
+            </tr><tr>
+            <div id="row4">
+            <td><span class="label label-info">13/60</span></td>
+            <td><input type="checkbox" checked class="switch-mini" id="change-color-switch4" data-on="success" data-off="danger"></td>
+            <td><span class="subject">CS4262-Distributed Systems</span></td>
+            <td><div id="toggle-state-switch-button4" class="btn btn-success btn-xs"><i class="icon-white icon-ok"></i>Enroll</div></td>
+            </div>
+            </tr><tr>
+            <div id="row5">
+            <td><span class="label label-info">13/60</span></td>
+            <td><input type="checkbox" checked class="switch-mini" id="change-color-switch5" data-on="success" data-off="danger"></td>
+            <td><span class="subject">CS4272-Quality Engineering</span></td>
+            <td><div id="toggle-state-switch-button5" class="btn btn-success btn-xs"><i class="icon-white icon-ok"></i>Enroll</div></td>
+            </div>
+            </tr><tr>
+            <div id="row6">
+            <td><span class="label label-info">13/60</span></td>
+            <td><input type="checkbox" checked class="switch-mini" id="change-color-switch6" data-on="success" data-off="danger"></td>
+            <td><span class="subject">CS4322-Digital System Design</span></td>
+            <td><div id="toggle-state-switch-button6" class="btn btn-success btn-xs"><i class="icon-white icon-ok"></i>Enroll</div></td>
+            </div>
+            </tr><tr>
+            <div id="row7">
+            <td><span class="label label-info">13/60</span></td>
+            <td><input type="checkbox" checked class="switch-mini" id="change-color-switch7" data-on="success" data-off="danger"></td>
+            <td><span class="subject">CS4452-Information Security & Cryptography</span></td>
+            <td><div id="toggle-state-switch-button7" class="btn btn-success btn-xs" ><i class="icon-white icon-ok"></i>Enroll</div></td>
+            </div>
+        </tr>
+        </table>
+        <div>
+            <h3>Key</h3>
+         <p><div class="label label-info">13/60</div> Can enroll, Class limit = 60, Currunt number of enrollments = 13</p>
+        <p><div class="label label-warning">Com</div> Compulsary Subjects</p>
+        <p><div class="label label-danger">60/60</div> Cannot Enroll due to some limitation (Calss limits, Credit limits)</p>
+        </div>
+        </div>
+    </div>
+    <div id="footer">
+      <div class="container">
+        <p class="text-muted">University of Moratuwa 2014</p>
+      </div>
+    </div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+</body>
+</html>
