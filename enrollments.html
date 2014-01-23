@@ -80,7 +80,7 @@ function clientSideInclude(id, url) {
 
 </head>
 
-<body style="">
+<body style="" onLoad="clientSideInclude('footer', 'footer.html');clientSideInclude('header', 'header.html');">
 
 <!-- Wrap all page content here -->
 <div id="wrap">
@@ -89,7 +89,6 @@ function clientSideInclude(id, url) {
    <div id="header">
       <!--#include virtual="/header.html" -->
 
-      <body onLoad="clientSideInclude('header', 'header.html');">
 
     </div>
 
@@ -212,9 +211,7 @@ function clientSideInclude(id, url) {
 </div>
 </div>
 <div id="footer">
-    <div class="container">
-        <p class="text-muted">University of Moratuwa 2014</p>
-    </div>
+    <body onLoad="clientSideInclude('footer', 'footer.html');">
 </div>
 
 
