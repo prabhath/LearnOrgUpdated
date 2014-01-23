@@ -29,10 +29,54 @@
     <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 
 
-
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 
 
+<script>
+function clientSideInclude(id, url) {
+  var req = false;
+  // For Safari, Firefox, and other non-MS browsers
+  if (window.XMLHttpRequest) {
+    try {
+      req = new XMLHttpRequest();
+    } catch (e) {
+      req = false;
+    }
+  } else if (window.ActiveXObject) {
+    // For Internet Explorer on Windows
+    try {
+      req = new ActiveXObject("Msxml2.XMLHTTP");
+    } catch (e) {
+      try {
+        req = new ActiveXObject("Microsoft.XMLHTTP");
+      } catch (e) {
+        req = false;
+      }
+    }
+  }
+  var element = document.getElementById(id);
+  if (!element) {
+    alert("Bad id " + id + 
+     "passed to clientSideInclude." +
+     "You need a div or span element " +
+     "with this id in your page.");
+    return;
+  }
+  if (req) {
+    // Synchronous request, wait till we have it all
+    req.open('GET', url, false);
+    req.send(null);
+    element.innerHTML = req.responseText;
+  } else {
+    element.innerHTML =
+    "Sorry, your browser does not support " +
+    "XMLHTTPRequest objects. This page requires " +
+    "Internet Explorer 5 or better for Windows, " +
+    "or Firefox for any system, or Safari. Other " +
+    "compatible browsers may also exist.";
+  }
+}
+</script>
 
 </head>
 
@@ -42,58 +86,11 @@
 <div id="wrap">
 
     <!-- Fixed navbar -->
-    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand active" href="http://getbootstrap.com/examples/navbar-fixed-top/#">LearnOrg</a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Courses<b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Manage Enrollments</a></li>
-                            <li><a href="#">View Courses</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">Results</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">External Links<b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="http://lms.uom.lk">Moodle</a></li>
-                            <li><a href="https://online.mrt.ac.lk">New Moodle</a></li>
-                            <li><a href="http://www.mrt.ac.lk/web/">UOM</a></li>
-                            <!--<li><a href="http://getbootstrap.com/examples/navbar-fixed-top/#">Something else here</a></li>-->
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Help <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="http://getbootstrap.com/examples/navbar-fixed-top/#">About</a></li>
-                            <li><a href="http://getbootstrap.com/examples/navbar-fixed-top/#">FAQ</a></li>
-                            <!--<li><a href="http://getbootstrap.com/examples/navbar-fixed-top/#">Something else here</a></li>-->
-                        </ul>
-                    </li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><form class="navbar-form navbar-right" role="search">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Search">
-                        </div>
-                        <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
-                    </form></li>
-                    <li><a href="#">Profile</a></li>
-                    <li><a href="#">Logout</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                </ul>
-            </div><!--/.nav-collapse -->
-        </div>
+   <div id="header">
+      <!--#include virtual="/header.html" -->
+
+      <body onLoad="clientSideInclude('header', 'header.html');">
+
     </div>
 
     <!-- Begin page content -->
