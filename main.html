@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="shortcut icon" href="http://getbootstrap.com/docs-assets/ico/favicon.png">
+
+<title>LearnOrg 3.0 beta</title>
+
+
+<!--<link href="http://bootswatch.com/cosmo/bootstrap.min.css" rel="stylesheet">-->
+
+
+<!--Latest compiled and minified CSS -->
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+
+<!-- Custom styles for this template -->
+<link href="css/sticky-footer-navbar.css" rel="stylesheet">
+
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+      <![endif]-->
+
+      <script src="lib/jquery-1.10.2.min.js"></script> 
+      // <script> 
+    // $( document ).ready(function(){
+    //   $("#header").load("./header.html"); 
+    // });
+// </script> 
+
+<script>
+function clientSideInclude(id, url) {
+  var req = false;
+  // For Safari, Firefox, and other non-MS browsers
+  if (window.XMLHttpRequest) {
+    try {
+      req = new XMLHttpRequest();
+    } catch (e) {
+      req = false;
+    }
+  } else if (window.ActiveXObject) {
+    // For Internet Explorer on Windows
+    try {
+      req = new ActiveXObject("Msxml2.XMLHTTP");
+    } catch (e) {
+      try {
+        req = new ActiveXObject("Microsoft.XMLHTTP");
+      } catch (e) {
+        req = false;
+      }
+    }
+  }
+  var element = document.getElementById(id);
+  if (!element) {
+    alert("Bad id " + id + 
+     "passed to clientSideInclude." +
+     "You need a div or span element " +
+     "with this id in your page.");
+    return;
+  }
+  if (req) {
+    // Synchronous request, wait till we have it all
+    req.open('GET', url, false);
+    req.send(null);
+    element.innerHTML = req.responseText;
+  } else {
+    element.innerHTML =
+    "Sorry, your browser does not support " +
+    "XMLHTTPRequest objects. This page requires " +
+    "Internet Explorer 5 or better for Windows, " +
+    "or Firefox for any system, or Safari. Other " +
+    "compatible browsers may also exist.";
+  }
+}
+</script>
+
+
+</head>
+
+<body style="">
+
+  <!-- Wrap all page content here -->
+  <div id="wrap">
+    <div id="header">
+      <!--#include virtual="/header.html" -->
+
+      <body onLoad="clientSideInclude('header', 'header.html');">
+
+    </div>
+
+
+
+    <!-- Begin page content -->
+    <div class="container">
+
+      <div class="jumbotron">
+        <div class="row">
+          <div class="col-md-4">
+            <a href="#" class="thumbnail">
+              <img src="img/collogo.jpg" alt="...">
+            </a>
+          </div>
+          <div class="col-md-8">
+            <h2>Welcome 090000A</h2>
+            <p>This example is a quick exercise to illustrate how the default, static and fixed to top navbar work. It includes the responsive CSS and HTML, so it also adapts to your viewport and device.</p>
+            <p>To see the difference between static and fixed top navbars, just scroll.</p>
+            <p>
+              <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">View navbar docs &raquo;</a>
+            </p>
+          </div>
+        </div>
+
+      </div> <!-- jumbotron-->
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Notices</h3>
+            </div>
+            <div class="panel-body">
+              <div class="list-group">
+                <a href="#" class="list-group-item">
+                  <h4 class="list-group-item-heading">Introduction of single sign-on</h4>
+                  <p class="list-group-item-text">Since now we have implemented centralized authentication management system, now you can access Mail, LearnOrg and Moodle using same username and the password.
+
+                    Therefore hereafter you should use the new password to login to all these systems.</p>
+
+                  </a>
+                  <a href="#" class="list-group-item">
+                    <h4 class="list-group-item-heading">Semester 8 Enrollments</h4>
+                    <p class="list-group-item-text">Semester 8 enrolments will be available from 2013/06/06</p>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">
+                  <span class="glyphicon glyphicon-bookmark"></span> Quick Shortcuts</h3>
+                </div>
+                <div class="panel-body">
+                  <div class="row">
+                    <!--<div class="col-xs-6 col-md-6">-->
+                    <a href="#" class="btn btn-danger btn-lg" role="button"><span class="glyphicon glyphicon-list-alt"></span> <br/>Apps</a>
+                    <a href="#" class="btn btn-warning btn-lg" role="button"><span class="glyphicon glyphicon-bookmark"></span> <br/>Bookmarks</a>
+                    <a href="#" class="btn btn-primary btn-lg" role="button"><span class="glyphicon glyphicon-signal"></span> <br/>Reports</a>
+                    <a href="#" class="btn btn-primary btn-lg" role="button"><span class="glyphicon glyphicon-comment"></span> <br/>Comments</a>
+                    <!--</div>-->
+                    <!--<div class="col-xs-6 col-md-6">-->
+                    <!--<a href="#" class="btn btn-success btn-lg" role="button"><span class="glyphicon glyphicon-user"></span> <br/>Users</a>-->
+                    <!--<a href="#" class="btn btn-info btn-lg" role="button"><span class="glyphicon glyphicon-file"></span> <br/>Notes</a>-->
+                    <!--<a href="#" class="btn btn-primary btn-lg" role="button"><span class="glyphicon glyphicon-picture"></span> <br/>Photos</a>-->
+                    <!--<a href="#" class="btn btn-primary btn-lg" role="button"><span class="glyphicon glyphicon-tag"></span> <br/>Tags</a>-->
+                    <!--</div>-->
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+    </div>
+  </div>
+  <div id="footer">
+    <div class="container">
+      <p class="text-muted">University of Moratuwa 2014</p>
+    </div>
+  </div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+
+
+
+
+
+
+
+  </body>
+  </html>
