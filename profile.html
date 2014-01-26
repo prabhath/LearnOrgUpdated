@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="shortcut icon" href="http://getbootstrap.com/docs-assets/ico/favicon.png">
+<title>LearnOrg 3.0 beta</title>
+
+<!--<link href="http://bootswatch.com/cosmo/bootstrap.min.css" rel="stylesheet">-->
+
+<!--Latest compiled and minified CSS -->
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+
+<!-- Custom styles for this template -->
+<link href="css/sticky-footer-navbar.css" rel="stylesheet">
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script>
+$(".date-picker").datepicker();
+
+function clientSideInclude(id, url) {
+  var req = false;
+  // For Safari, Firefox, and other non-MS browsers
+  if (window.XMLHttpRequest) {
+    try {
+      req = new XMLHttpRequest();
+    } catch (e) {
+      req = false;
+    }
+  } else if (window.ActiveXObject) {
+    // For Internet Explorer on Windows
+    try {
+      req = new ActiveXObject("Msxml2.XMLHTTP");
+    } catch (e) {
+      try {
+        req = new ActiveXObject("Microsoft.XMLHTTP");
+      } catch (e) {
+        req = false;
+      }
+    }
+  }
+  var element = document.getElementById(id);
+  if (!element) {
+    alert("Bad id " + id + 
+     "passed to clientSideInclude." +
+     "You need a div or span element " +
+     "with this id in your page.");
+    return;
+  }
+  if (req) {
+    // Synchronous request, wait till we have it all
+    req.open('GET', url, false);
+    req.send(null);
+    element.innerHTML = req.responseText;
+  } else {
+    element.innerHTML =
+    "Sorry, your browser does not support " +
+    "XMLHTTPRequest objects. This page requires " +
+    "Internet Explorer 5 or better for Windows, " +
+    "or Firefox for any system, or Safari. Other " +
+    "compatible browsers may also exist.";
+  }
+}
+</script>
+</head>
+
+<body style="" onLoad="clientSideInclude('footer', 'footer.html');clientSideInclude('header', 'header.html');">
+
+<!-- Wrap all page content here -->
+<div id="wrap"> 
+  
+  <!-- Fixed navbar -->
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand active" href="http://getbootstrap.com/examples/navbar-fixed-top/#">LearnOrg</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">External Links<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Moodle</a></li>
+                            <li><a href="#">New Moodle</a></li>
+                            <li><a href="#">UOM</a></li>
+                            <!--<li><a href="http://getbootstrap.com/examples/navbar-fixed-top/#">Something else here</a></li>-->
+                        </ul>
+                    </li>
+                    <!--<li class="dropdown">-->
+                    <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown">Help <b class="caret"></b></a>-->
+                    <!--<ul class="dropdown-menu">-->
+                    <!--<li><a href="http://getbootstrap.com/examples/navbar-fixed-top/#">About</a></li>-->
+                    <!--<li><a href="http://getbootstrap.com/examples/navbar-fixed-top/#">FAQ</a></li>-->
+                    <!--&lt;!&ndash;<li><a href="http://getbootstrap.com/examples/navbar-fixed-top/#">Something else here</a></li>&ndash;&gt;-->
+                    <!--</ul>-->
+                    <!--</li>-->
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Contact Admin</a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+    </div>
+  
+  <!-- Begin page content -->
+  <div class="container">
+    <div class="jumbotron">
+      <h2>Edit My Profile</h2>
+      <div class="row">
+        <form method="post" class="col-md-12 form-inline form-horizontal" role="form">
+          <label class="control-label col-sm-4" for="jbe"><i class="icon-envelope"></i> Username: </label>
+          <div class="input-group col-sm-6">
+            <input type="text" class="form-control" readonly="readonly" value="090000A" >
+          </div>
+          <br>
+          <label class="control-label col-sm-4" for="jbe"><i class="icon-envelope"></i> Title: </label>
+          <div class="input-group col-sm-6">
+            <input type="text" class="form-control" value="Do or Die" >
+          </div>
+          <br>
+          <label class="control-label col-sm-4" for="jbe"><i class="icon-envelope"></i> Name with Initials: </label>
+          <div class="input-group col-sm-6">
+            <input type="text" class="form-control" value="M Rajapaksha" >
+          </div>
+          <br>
+          <label class="control-label col-sm-4" for="jbe"><i class="icon-envelope"></i> Full Name:</label>
+          <div class="input-group col-sm-6">
+            <input type="text" class="form-control" value="Mohan Rajapaksha" >
+          </div>
+          <br>
+          <label class="control-label col-sm-4" for="jbe"><i class="icon-envelope"></i> Primary email:</label>
+          <div class="input-group col-sm-6">
+            <input type="text" class="form-control" value="m.rajapaksha@gmail.com" >
+          </div>
+          <br>
+          <label class="control-label col-sm-4" for="jbe"><i class="icon-envelope"></i> First Name:</label>
+          <div class="input-group col-sm-6">
+            <input type="text" class="form-control" value="Mohan" >
+          </div>
+          <br>
+          <label class="control-label col-sm-4" for="jbe"><i class="icon-envelope"></i> Last Name:</label>
+          <div class="input-group col-sm-6">
+            <input type="text" class="form-control" value="Rajapaksha" >
+          </div>
+          <br>
+          <label class="control-label col-sm-4" for="jbe"><i class="icon-envelope"></i> Date Of Birth:</label>
+          <div class="input-group col-sm-6 control-group">
+            <div class="controls">
+              <div class="input-group">
+                <input id="date-picker-2" type="text" class="date-picker form-control" value="12/02/1989">
+                <label for="date-picker-2" class="input-group-addon btn"><i class="glyphicon glyphicon-calendar"></i> </label>
+              </div>
+            </div>
+          </div>
+          <br>
+          <label class="control-label col-sm-4" for="jbe"><i class="icon-envelope"></i> Gender:</label>
+          <div class="input-group col-sm-6">
+            <select class="form-control">
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+          </div>
+           <div class="input-group col-sm-6">
+             <button type="submit" class="btn btn-danger">Update</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <br/>
+    <div class="jumbotron">
+      <h2>Current Contact Details</h2>
+      <div class="row">
+        <form method="post" class="col-md-12 form-inline form-horizontal" role="form">
+          <label class="control-label col-sm-4" for="jbe"><i class="icon-envelope"></i> Current Address: </label>
+          <div class="input-group col-sm-6">
+            <input type="text" class="form-control"  value="182" >
+            <input type="text" class="form-control"  value="Galle Road" >
+            <input type="text" class="form-control"  value="Colombo 3" >
+          </div>
+          <br>
+          <label class="control-label col-sm-4" for="jbe"><i class="icon-envelope"></i> Home Telephone No: </label>
+          <div class="input-group col-sm-6">
+            <input type="text" class="form-control"  value="011 1234567" >
+          </div>
+          <br>
+          <label class="control-label col-sm-4" for="jbe"><i class="icon-envelope"></i> Mobile No: </label>
+          <div class="input-group col-sm-6">
+            <input type="text" class="form-control"  value="071 1234567" >
+          </div>
+          <div class="input-group col-sm-6">
+             <button type="submit" class="btn btn-danger">Update</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="jumbotron">
+      <h2>Permanant Contact Details</h2>
+      <div class="row">
+        <form method="post" class="col-md-12 form-inline form-horizontal" role="form">
+          <label class="control-label col-sm-4" for="jbe"><i class="icon-envelope"></i> Permanent Address: </label>
+          <div class="input-group col-sm-6">
+            <input type="text" class="form-control"  value="182" >
+            <input type="text" class="form-control"  value="Galle Road" >
+            <input type="text" class="form-control"  value="Colombo 3" >
+          </div>
+          <br>
+          <label class="control-label col-sm-4" for="jbe"><i class="icon-envelope"></i> Telephone No: </label>
+          <div class="input-group col-sm-6">
+            <input type="text" class="form-control"  value="011 1234567" >
+          </div>
+          <br>
+          <label class="control-label col-sm-4" for="jbe"><i class="icon-envelope"></i> email: </label>
+          <div class="input-group col-sm-6">
+            <input type="email" class="form-control"  value="090000A@uom.lk" >
+          </div>
+          <div class="input-group col-sm-6">
+             <button type="submit" class="btn btn-danger">Update</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+<div id="footer">
+  <body onLoad="clientSideInclude('footer', 'footer.html');">
+</div>
+
+<!-- Bootstrap core JavaScript
+================================================== --> 
+<!-- Placed at the end of the document so the pages load faster --> 
+
+<!-- Latest compiled and minified JavaScript --> 
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+</body>
+</html>

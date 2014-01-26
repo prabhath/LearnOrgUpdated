@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="shortcut icon" href="http://getbootstrap.com/docs-assets/ico/favicon.png">
+<title>LearnOrg 3.0 beta</title>
+
+<!--<link href="http://bootswatch.com/cosmo/bootstrap.min.css" rel="stylesheet">-->
+
+<!--Latest compiled and minified CSS -->
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+
+<!-- Custom styles for this template -->
+<link href="css/sticky-footer-navbar.css" rel="stylesheet">
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script>
+$(".date-picker").datepicker();
+
+function clientSideInclude(id, url) {
+  var req = false;
+  // For Safari, Firefox, and other non-MS browsers
+  if (window.XMLHttpRequest) {
+    try {
+      req = new XMLHttpRequest();
+    } catch (e) {
+      req = false;
+    }
+  } else if (window.ActiveXObject) {
+    // For Internet Explorer on Windows
+    try {
+      req = new ActiveXObject("Msxml2.XMLHTTP");
+    } catch (e) {
+      try {
+        req = new ActiveXObject("Microsoft.XMLHTTP");
+      } catch (e) {
+        req = false;
+      }
+    }
+  }
+  var element = document.getElementById(id);
+  if (!element) {
+    alert("Bad id " + id + 
+     "passed to clientSideInclude." +
+     "You need a div or span element " +
+     "with this id in your page.");
+    return;
+  }
+  if (req) {
+    // Synchronous request, wait till we have it all
+    req.open('GET', url, false);
+    req.send(null);
+    element.innerHTML = req.responseText;
+  } else {
+    element.innerHTML =
+    "Sorry, your browser does not support " +
+    "XMLHTTPRequest objects. This page requires " +
+    "Internet Explorer 5 or better for Windows, " +
+    "or Firefox for any system, or Safari. Other " +
+    "compatible browsers may also exist.";
+  }
+}
+</script>
+</head>
+
+<body style="" onLoad="clientSideInclude('footer', 'footer.html');clientSideInclude('header', 'header.html');">
+
+<!-- Wrap all page content here -->
+<div id="wrap"> 
+  
+  <!-- Fixed navbar -->
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand active" href="http://getbootstrap.com/examples/navbar-fixed-top/#">LearnOrg</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">External Links<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Moodle</a></li>
+                            <li><a href="#">New Moodle</a></li>
+                            <li><a href="#">UOM</a></li>
+                            <!--<li><a href="http://getbootstrap.com/examples/navbar-fixed-top/#">Something else here</a></li>-->
+                        </ul>
+                    </li>
+                    <!--<li class="dropdown">-->
+                    <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown">Help <b class="caret"></b></a>-->
+                    <!--<ul class="dropdown-menu">-->
+                    <!--<li><a href="http://getbootstrap.com/examples/navbar-fixed-top/#">About</a></li>-->
+                    <!--<li><a href="http://getbootstrap.com/examples/navbar-fixed-top/#">FAQ</a></li>-->
+                    <!--&lt;!&ndash;<li><a href="http://getbootstrap.com/examples/navbar-fixed-top/#">Something else here</a></li>&ndash;&gt;-->
+                    <!--</ul>-->
+                    <!--</li>-->
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Contact Admin</a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+    </div>
+  
+  <!-- Begin page content -->
+  <div class="container">
+    <div class="jumbotron">
+      <h2>Step 1 : Log in</h2>
+      <div class="row"> <br/>
+        <p>If you're logging in for the first time..</p>
+        <br/>
+        <img src="img/login.PNG" width="785" height="217" class="img-rounded">
+        <ul>
+          <li>Username : ######* (Your Reg. No : 6 Digits + 1 Character)</li>
+          <li>Password : ###### (This is the default password. Contact UGS if you do not know)</li>
+          <li>Do not forget to Change your default password.</li>
+        </ul>
+      </div>
+    </div>
+    <br/>
+    <div class="jumbotron">
+      <h2>Step 2 : Update Your Profile</h2>
+      <div class="row"> <br/>
+        <ul>
+          <li>Update your profile by clicking "Profile" from the Menu</li>
+        </ul>
+        <img src="img/menuBar.PNG" width="1000" class="img-rounded">
+        <ul>
+          <li>You have to fill First name, Last name, Date of Birth, Primary Email, Current address 
+            and current home telephone number / mobile number. But it is expected to fill all 
+            available details.</li>
+          <li>Click "Update" to commit the changes</li>
+        </ul>
+        <img src="img/updatebutton.PNG" width="92" height="56" style="margin-left:50px" class="img-rounded"></div>
+    </div>
+    <div class="jumbotron">
+      <h2>Step 3 : Register For a Course</h2>
+      <div class="row"> <br/>
+        <ul>
+          <li>Click "Manage Enrolments" which is under "Courses" menu item.</li>
+        </ul>
+        <img src="img/menubar2.PNG" width="1000" height="119" class="img-rounded">
+        <ul>
+          <li>There you can see the available courses with an enrol button</li>
+          <li>To enroll courses, click on enrol button </li>
+          <li>You can unenrol a registration by clicking corresponding unenrol button </li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="jumbotron">
+      <h2>Step 4 : Logout</h2>
+      <div class="row"> <br/>
+        <ul>
+          <li>Click "Logout" from the menu to successfully logout</li>
+        </ul>
+      <img src="img/logout.PNG" width="1000"  class="img-rounded"></div>
+    </div>
+    
+     <div class="jumbotron">
+      <h2>Step 5 : Participate in online course works 
+</h2>
+      <div class="row"> <br/>
+        <ul>
+          <li>Go to <a target="_blank" href="https://online.mrt.ac.lk/login/index.php">Moodle</a> and view course content</li>
+        </ul>
+       <img src="img/moodle.PNG" width="1000" class="img-rounded"></div>
+    
+  </div>
+</div>
+</div>
+</div>
+<div id="footer">
+  <body onLoad="clientSideInclude('footer', 'footer.html');">
+</div>
+
+<!-- Bootstrap core JavaScript
+================================================== --> 
+<!-- Placed at the end of the document so the pages load faster --> 
+
+<!-- Latest compiled and minified JavaScript --> 
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+</body>
+</html>
